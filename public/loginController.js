@@ -37,7 +37,7 @@ function login(){
         alert(password+'hi i am the password login');
             
         alert('login function is called!');
-       var url = 'http://localhost/logintutorial/webservices/login.php?username='+username+'&password='+password;
+       var url = 'http://localhost/login/public/login.js?username='+username+'&password='+password;
             
             alert(url);
             console.log(url);
@@ -49,7 +49,7 @@ function login(){
                 
                 if(status == 1){
                     //this is the sucess code
-                    window.location.href = 'http://joelwebsites.com';
+                    window.location.href = '#';
                 }
                 
                 if(status != 1){
