@@ -1,7 +1,6 @@
-    //Create a module and create a controller for angular
-        var myangularapp = angular.module("myangularapp", []);
-myangularapp.controller("myangularController", function($scope,$http) {
-       
+//Create a module and create a controller for angular
+var myangularapp = angular.module("myangularapp", []);
+myangularapp.controller("myangularController", function($scope,$http) {    
         
     $scope.login = function (){
      alert('test3');
@@ -28,3 +27,52 @@ myangularapp.controller("myangularController", function($scope,$http) {
     }
     
 });
+
+function login(){
+        //login code here
+    var username = $('#username1').val();
+    var password = $('#password1').val();
+            
+    alert(username+'hi i am the username login');
+        alert(password+'hi i am the password login');
+            
+        alert('login function is called!');
+       var url = 'http://localhost/logintutorial/webservices/login.php?username='+username+'&password='+password;
+            
+            alert(url);
+            console.log(url);
+            $.post(url,
+    function(data, status){
+                
+                alert(JSON.stringify(data));
+                var status = data[0].status;
+                
+                if(status == 1){
+                    //this is the sucess code
+                    window.location.href = 'http://joelwebsites.com';
+                }
+                
+                if(status != 1){
+                    alert('login failed');
+                }
+                alert(status+'i am the status test');
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+        
+        }
+        function register(){
+    var email = $('#email').val();
+    var username = $('#username').val();
+    var confirmpassword =$('#confirm-password').val();
+      
+            
+            $.post("http://localhost/public/register.html",
+    {
+        password: confirmpassword,
+        email: email,
+        username: username
+    },
+    function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+        }
